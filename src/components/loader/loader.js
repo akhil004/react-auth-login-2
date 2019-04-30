@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
+import { LOADING } from '../../utils/constant';
+import { connect } from 'react-redux';
 const styles = theme => ({
   progress: {
     margin: theme.spacing.unit * 2,
@@ -10,16 +11,19 @@ const styles = theme => ({
 });
 
 function Loader(props) {
-  const { classes,loading } = props;
-  return (
-    <div>
-      {loading ? <CircularProgress className={classes.progress} color="secondary" /> : '' }
-    </div>
-  );
+  const { classes } = props;
+  console.log("props", props.phase)
+  if (props.phase === LOADING) {
+    return (
+      <CircularProgress className={classes.progress} color="secondary" />
+    );
+  }
+  return null;
+  
 }
 
 Loader.propTypes = {
   classes: PropTypes.object.isRequired,
 };
-
-export default withStyles(styles)(Loader);
+const mapStateToProps = ({ userStore }) => userStore;
+export default connect (mapStateToProps)(withStyles(styles)(Loader)) ;
