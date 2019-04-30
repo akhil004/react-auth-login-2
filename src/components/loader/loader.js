@@ -12,7 +12,6 @@ const styles = theme => ({
 
 function Loader(props) {
   const { classes } = props;
-  console.log("props", props.phase)
   if (props.phase === LOADING) {
     return (
       <CircularProgress className={classes.progress} color="secondary" />

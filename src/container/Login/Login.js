@@ -75,7 +75,7 @@ class Login extends Component {
               <form className={classes.form}>
                 <FormControl margin="normal" required fullWidth>
                   <InputLabel htmlFor="email">Email Address</InputLabel>
-                  <Input id="email" name="email" autoComplete="email" autoFocus onChange={this.handleChange}/>
+                  <Input id="email" name="email" autoComplete="email" autoFocus onChange={this.handleChange} required/>
                 </FormControl>
                 <FormControl margin="normal" required fullWidth>
                   <InputLabel htmlFor="password">Password</InputLabel>
