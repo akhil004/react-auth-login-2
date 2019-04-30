@@ -27,7 +27,7 @@ class Notification extends React.Component {
                         'aria-describedby': 'message-id',
                     }}
                     onClose={this.handleClose}
-                    message={<span id="message-id">{error.error}</span>}
+                    message={<span id="message-id">{error ? error.error : 'Login Successfully'}</span>}
                 />
             )
         
